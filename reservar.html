@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Cita - PsicoDate</title>
+    <link rel="stylesheet" href="estilos_psicodate.css">
+</head>
+<body>
+    
+    
+    <header>
+        <nav>
+            <div class="contenedor">
+                <a href="index.html" class="logo">PsicoDate</a>
+                
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="psicologos.html">Psicólogos</a></li>
+                    <li><a href="reservar.html" class="activo">Reservar Cita</a></li>
+                    <li><a href="login.html">Iniciar Sesión</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main>
+        <div class="contenedor contenedor-estrecho">
+            
+            
+            <section class="texto-centrado">
+                <h1>Reservar Cita</h1>
+                <p>Completa el formulario para reservar tu cita con nuestros profesionales</p>
+            </section>
+
+            
+            <section>
+                <div class="aviso aviso-info">
+                    <strong>Antes de continuar:</strong><br><br>
+                    • Necesitas tener una cuenta activa para reservar<br>
+                    • Las cancelaciones deben realizarse con 24h de antelación<br>
+                    • Recibirás un código de confirmación por email
+                </div>
+            </section>
+
+            
+            <section>
+                <form action="procesar_reserva.php" method="post">
+                    
+                    
+                    <fieldset>
+                        <legend>Datos Personales</legend>
+                        
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                        
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required 
+                               placeholder="tu@email.com">
+                        
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required
+                               placeholder="123456789">
+                        
+                        <label for="fecha_nacimiento">Fecha de nacimiento *</label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                    </fieldset>
+
+                    
+                    <fieldset>
+                        <legend>Detalles de la Cita</legend>
+                        
+                        <label for="psicologo">Psicólogo preferido *</label>
+                        <select id="psicologo" name="psicologo" required>
+                            <option value="">-- Selecciona un psicólogo --</option>
+                            <option value="carlos">Dr. Carlos Martínez López</option>
+                            <option value="ana">Dra. Ana García Ruiz</option>
+                            <option value="miguel">Dr. Miguel Fernández Torres</option>
+                            <option value="laura">Dra. Laura Sánchez Vega</option>
+                        </select>
+                        
+                        <label for="servicio">Tipo de servicio *</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="">-- Selecciona un servicio --</option>
+                            <option value="individual">Terapia Individual (50€)</option>
+                            <option value="pareja">Terapia de Pareja (65€)</option>
+                            <option value="infantil">Terapia Infantil (45€)</option>
+                            <option value="familiar">Terapia Familiar (75€)</option>
+                            <option value="primera">Primera Consulta (40€)</option>
+                            <option value="estres">Gestión del Estrés (50€)</option>
+                        </select>
+                        
+                        <label for="fecha_cita">Fecha preferida de la cita *</label>
+                        <input type="date" id="fecha_cita" name="fecha_cita" required>
+                        
+                        <label>Horario preferido *</label>
+                        <input type="radio" id="manana" name="horario" value="manana" required>
+                        <label for="manana">Mañana (9:00 - 14:00)</label><br>
+                        
+                        <input type="radio" id="tarde" name="horario" value="tarde" required>
+                        <label for="tarde">Tarde (14:00 - 18:00)</label><br>
+                        
+                        <input type="radio" id="cualquiera" name="horario" value="cualquiera" required>
+                        <label for="cualquiera">Cualquier horario</label>
+                    </fieldset>
+
+                    
+                    <fieldset>
+                        <legend>Información Adicional</legend>
+                        
+                        <label>¿Es tu primera vez en terapia psicológica?</label>
+                        <input type="radio" id="primera_si" name="primera_vez" value="si">
+                        <label for="primera_si">Sí, es mi primera vez</label><br>
+                        
+                        <input type="radio" id="primera_no" name="primera_vez" value="no">
+                        <label for="primera_no">No, ya he ido antes</label>
+                        
+                        <br><br>
+                        
+                        <label for="motivo">Motivo de la consulta (opcional)</label>
+                        <textarea id="motivo" name="motivo" rows="4" 
+                                  placeholder="Explica brevemente el motivo de tu consulta..."></textarea>
+                        
+                        <label for="observaciones">Observaciones adicionales</label>
+                        <textarea id="observaciones" name="observaciones" rows="3" 
+                                  placeholder="Cualquier información adicional que consideres importante..."></textarea>
+                    </fieldset>
+
+                    
+                    <fieldset>
+                        <legend>Confirmación</legend>
+                        
+                        <label>
+                            <input type="checkbox" name="terminos" required>
+                            Acepto los términos y condiciones del servicio *
+                        </label>
+                        
+                        <label>
+                            <input type="checkbox" name="politica" required>
+                            He leído y acepto la política de privacidad *
+                        </label>
+                        
+                        <label>
+                            <input type="checkbox" name="confirmacion" required>
+                            Confirmo que la información proporcionada es correcta *
+                        </label>
+                        
+                        <label>
+                            <input type="checkbox" name="recordatorios">
+                            Deseo recibir recordatorios por email
+                        </label>
+                    </fieldset>
+
+                    <button type="submit" class="boton boton-primario boton-grande" style="width: 100%;">
+                        Enviar Solicitud de Reserva
+                    </button>
+                </form>
+            </section>
+
+            
+            <section class="espaciado-superior">
+                <div class="aviso aviso-exito">
+                    <strong>¿Necesitas ayuda?</strong><br><br>
+                    Si tienes dudas sobre el formulario, puedes contactarnos:<br>
+                    Teléfono: 963 123 456<br>
+                    Email: info@psicodate.com<br>
+                    Horario: Lunes a Viernes, 9:00 - 18:00
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    
+    <footer>
+        <div class="contenedor">
+            <p>&copy; 2026 PsicoDate - Sistema de Gestión de Citas para Gabinetes de Psicología</p>
+            <p>Proyecto Académico - 1º DAW | Sergio Corbacho Lobato</p>
+            <p>
+                <a href="#">Política de Privacidad</a> | 
+                <a href="#">Términos de Servicio</a> | 
+                <a href="#">Contacto</a>
+            </p>
+        </div>
+    </footer>
+    
+</body>
+</html>
